@@ -1,5 +1,7 @@
 <h1>Hello, Rails!</h1>
 
+Our blog has <%= Article.public_count %> articles and counting!
+
 <ul>
     <% @articles.map do |article| %>
     <li>
@@ -9,9 +11,24 @@
         </a>
     </li>
 
+  
+
         <%# The `link_to` helper renders a link with its first argument as the link's text and its second argument as the link's destination. If we pass a model object as the second argument, `link_to` will call the appropriate path helper to convert the object to a path %>
     <li>
         <%= link_to article.title, article %> 
     </li>
     <% end %>
 </li>
+
+</ul>
+
+<ul>
+    <h1>CHECK HERE</h1>
+    <% @articles.each do |article| %>
+        <% unless article.archived? %>
+        <li>
+            <%= link_to article.title, article %>
+        </li>
+        <% end %>
+    <% end %>
+</ul>
