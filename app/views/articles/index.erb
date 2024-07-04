@@ -32,3 +32,5 @@ Our blog has <%= Article.public_count %> articles and counting!
         <% end %>
     <% end %>
 </ul>
+
+<%= button_to "logout", destroy_user_session_path, method: :delete  %>
